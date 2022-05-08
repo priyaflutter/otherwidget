@@ -29,17 +29,21 @@ class _third1State extends State<third1> {
           SizedBox(height: 20,child: Text("Snackbar"),),
           Center(
             child: Container(
-              height: 100,
+              height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  SnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar( SnackBar(
                     content: Text("I am Snackbar.."),
-                    backgroundColor: Colors.black,
-                    duration: Duration(seconds: 2),behavior: SnackBarBehavior.floating,
                     action: SnackBarAction(onPressed: () {
+                      
+                    },label: "Undo"),
+                    backgroundColor: Colors.black,
+                    // behavior: SnackBarBehavior.floating,
+                    
+                    // behavior: SnackBarBehavior.floating,
+                  )) ;
 
-                    },label: "Dismiss",),
-                  );
+                  
                 },
                 child: Text(
                   'Click to Display a SnackBar',
