@@ -32,11 +32,11 @@ class _seventh1State extends State<seventh1> {
                     final XFile? image =
                         await picker.pickImage(source: ImageSource.gallery);
 
-                    setState(() {
-                      crop=image!.path;
-                     
-                    });
-                    print("=============${crop}");
+                    // setState(() {
+                    //   crop=image!.path;
+                    // 
+                    // });
+                    // print("=============${crop}");
                     
 
                     // final crop = cropKey.currentState;
@@ -55,30 +55,35 @@ class _seventh1State extends State<seventh1> {
                             lockAspectRatio: false),
                       ],
                     );
-                    crop = croppedFile!.path;
-                    print(croppedFile.runtimeType);
+                    setState(() {
+                      crop = croppedFile!.path;
+                      print(croppedFile.runtimeType);
+                    });
                   });
                 },
-                child: Container( height:50,
-                  width: double.infinity,
+                child:Container(
+                  height: 100,
+                  width: 100,
+                  child: CircleAvatar(
+                    minRadius: 30,
+                    backgroundImage: FileImage(File(crop)),
+                  ),
+                ),
+              ),
+
+              Container( height:50,
+                width: double.infinity,
+                child: Center(
                   child: Text(
                     "Pic Image",
                     style: TextStyle(color: Colors.white, fontSize: 30),
                   ),
-                  // padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(color: Colors.black,border: Border.all(width: 2)),
+                ),
+                // padding: EdgeInsets.all(10),
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Colors.black,border: Border.all(width: 2)),
 
-                ),
               ),
-              Container(
-                height: 100,
-                width: 100,
-                child: CircleAvatar(
-                  minRadius: 30,
-                  backgroundImage: FileImage(File(crop)),
-                ),
-              )
             ],
           ),
         ));
