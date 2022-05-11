@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:otherwidget/password%20validater.dart';
 import 'package:otherwidget/second.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: demo(),
+    home: password11(),
   ));
 }
 
